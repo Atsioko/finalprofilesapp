@@ -17,7 +17,7 @@ const App = () => {
   const callLambdaFunction = async () => {
     try {
         // Replace 'functionName' with the actual name of your function.
-        const result = await API.post('myFirstFunction', './amplify/my-first-function/resource', {
+        const result = await API.post('myFirstFunction', '../amplify/my-first-function/resource', {
             body: {
                 key1: 'value1',
                 key2: 'value2',
