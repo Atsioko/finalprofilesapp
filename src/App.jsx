@@ -7,6 +7,8 @@ const App = () => {
   const [singleStock, setSingleStock] = useState('');
   const [multipleStocks, setMultipleStocks] = useState('');
   const [stockUpdate, setStockUpdate] = useState('');
+  const [newStock, setNewStock] = useState('');
+  const [deleteStock, setDeleteStock] = useState('');
   const [response, setResponse] = useState(null);
   const [error, setError] = useState('');
 
@@ -51,6 +53,14 @@ const App = () => {
     'Get-Stocks': {
       httpMethod: 'GET',
       pathTemplate: '/stock/list',
+    },
+    'Create-Stock': {
+      httpMethod: 'POST',
+      pathTemplate: '/stock',
+    },
+    'Delete-Stock': {
+      httpMethod: 'DELETE',
+      pathTemplate: '/stock/{ticker}',
     },
   };
 
@@ -145,6 +155,40 @@ const App = () => {
               }
             >
               Update Stock
+            </button>
+          </div>
+
+          {/* Create stock */}
+          <div>
+            <h2>Create Stock</h2>
+            <input
+              type="text"
+              value={newStock}
+              onChange={(e) => setNewStock(e.target.value)}
+              placeholder="Enter new stock symbol"
+            />
+            <button
+              onClick={() =>
+                invokeService('Create-Stock', {}, { ticker: newStock, price: 100.0 })
+              }
+            >
+              Create Stock
+            </button>
+          </div>
+
+          {/* Delete stock */}
+          <div>
+            <h2>Delete Stock</h2>
+            <input
+              type="text"
+              value={deleteStock}
+              onChange={(e) => setDeleteStock(e.target.value)}
+              placeholder="Enter stock symbol to delete"
+            />
+            <button
+              onClick={() => invokeService('Delete-Stock', { ticker: deleteStock })}
+            >
+              Delete Stock
             </button>
           </div>
         </>
