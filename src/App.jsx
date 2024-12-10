@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { myFirstFunction } from './amplify/my-first-function/resource';
+import { myFirstFunction } from '../amplify/my-first-function/resource';
 
 const App = () => {
   // State to store discovered services, user input, and API responses
