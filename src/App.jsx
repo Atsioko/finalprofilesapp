@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Amplify from 'aws-amplify';
-import { API } from '@aws-amplify/api-rest';
-
-
 
 const App = () => {
   // State to store discovered services, user input, and API responses
