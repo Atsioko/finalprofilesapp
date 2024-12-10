@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import Amplify, {API} from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
+
 const App = () => {
   // State to store discovered services, user input, and API responses
   const [services, setServices] = useState({});
@@ -12,6 +16,23 @@ const App = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState('');
 
+  //Testing calling the test lambda function
+  const callLambdaFunction = async () => {
+    try {
+        // Replace 'functionName' with the actual name of your function.
+        const result = await API.post('fyFirstFunction', './amplify/my-first-function/resource', {
+            body: {
+                key1: 'value1',
+                key2: 'value2',
+            },
+        });
+        setResponse(result);
+    } catch (error) {
+        console.error('Error calling Lambda function:', error);
+        setResponse({ error: 'Failed to call function' });
+    }
+  };
+  
   // API Gateway and service discovery configurations
   const apiUrl = 'https://1aelrvkum9.execute-api.us-east-1.amazonaws.com/Prod';
   const namespaceId = 'ns-ccodzupqwu4kvz3d'; // Replace with your namespace ID
@@ -99,6 +120,12 @@ const App = () => {
   return (
     <div>
       <h1>Stock Tracker</h1>
+      
+      <div>
+            <h1>Amplify Lambda Function Demo</h1>
+            <button onClick={callLambdaFunction}>Call Lambda Function</button>
+            <pre>{response && JSON.stringify(response, null, 2)}</pre>
+        </div>
 
       {Object.keys(services).length > 0 ? (
         <>
