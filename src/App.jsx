@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Amplify, {API} from 'aws-amplify';
-import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
+
 
 const App = () => {
   // State to store discovered services, user input, and API responses
