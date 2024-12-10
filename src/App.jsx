@@ -12,8 +12,6 @@ const App = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState('');
 
- 
-  
   // API Gateway and service discovery configurations
   const apiUrl = 'https://1aelrvkum9.execute-api.us-east-1.amazonaws.com/Prod';
   const namespaceId = 'ns-ccodzupqwu4kvz3d'; // Replace with your namespace ID
@@ -102,12 +100,6 @@ const App = () => {
     <div>
       <h1>Stock Tracker</h1>
       
-      <div>
-            <h1>Amplify Lambda Function Demo</h1>
-            <button onClick={callLambdaFunction}>Call Lambda Function</button>
-            <pre>{response && JSON.stringify(response, null, 2)}</pre>
-        </div>
-
       {Object.keys(services).length > 0 ? (
         <>
           {/* Get single stock */}
