@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Amplify, {API} from 'aws-amplify';
+import Amplify from 'aws-amplify';
+import { API } from '@aws-amplify/api-rest';
+
 
 
 const App = () => {
