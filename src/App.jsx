@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { myFirstFunction } from '../amplify/my-first-function/resource';
 
 const App = () => {
   // State to store discovered services, user input, and API responses
@@ -13,22 +12,7 @@ const App = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState('');
 
-  //Testing calling the test lambda function
-  const callLambdaFunction = async () => {
-    try {
-        // Replace 'functionName' with the actual name of your function.
-        const result = await API.post('myFirstFunction', './amplify/my-first-function/resource', {
-            body: {
-                key1: 'value1',
-                key2: 'value2',
-            },
-        });
-        setResponse(result);
-    } catch (error) {
-        console.error('Error calling Lambda function:', error);
-        setResponse({ error: 'Failed to call function' });
-    }
-  };
+ 
   
   // API Gateway and service discovery configurations
   const apiUrl = 'https://1aelrvkum9.execute-api.us-east-1.amazonaws.com/Prod';
