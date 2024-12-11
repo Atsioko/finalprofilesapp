@@ -13,7 +13,7 @@ const App = () => {
   const [error, setError] = useState('');
 
   // API Gateway and service discovery configurations
-  const apiUrl = 'https://1aelrvkum9.execute-api.us-east-1.amazonaws.com/Prod';
+  const apiUrl = 'https://1aelrvkum9.execute-api.us-east-1.amazonaws.com/Prod/stock';
   const namespaceId = 'ns-ccodzupqwu4kvz3d'; // Replace with your namespace ID
 
   // Discover services dynamically
@@ -44,23 +44,23 @@ const App = () => {
   const serviceApiMapping = {
     'Get-Stock': {
       httpMethod: 'GET',
-      pathTemplate: '/stock/{ticker}',
+      pathTemplate: '/{ticker}',
     },
     'Update-Stock': {
       httpMethod: 'PUT',
-      pathTemplate: '/stock/{ticker}',
+      pathTemplate: '/{ticker}',
     },
     'Get-Stocks': {
       httpMethod: 'GET',
-      pathTemplate: '/stock/list',
+      pathTemplate: '/list',
     },
     'Create-Stock': {
       httpMethod: 'POST',
-      pathTemplate: '/stock',
+      pathTemplate: '',
     },
     'Delete-Stock': {
       httpMethod: 'DELETE',
-      pathTemplate: '/stock/{ticker}',
+      pathTemplate: '/{ticker}',
     },
   };
 
