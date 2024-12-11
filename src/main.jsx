@@ -35,10 +35,6 @@ Amplify.configure({
 });
 import { signIn } from "aws-amplify/auth"
 
-await signIn({
-  username: "john.doe@example.com",
-  password: "hunter2",
-})
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
